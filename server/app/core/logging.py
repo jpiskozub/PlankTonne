@@ -1,6 +1,7 @@
 # Logging configuration
 
 import logging
+import structlog
 import sys
 
 from app.core.config import settings
@@ -8,7 +9,6 @@ from app.core.config import settings
 
 def setup_logging():
     """Setup structured logging with JSON format."""
-    import structlog
 
     # Configure standard library logging
     logging.basicConfig(

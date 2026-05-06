@@ -23,7 +23,7 @@ class MeasureBoardsRequest(BaseModel):
     form_length_mm: float = Field(..., gt=0)
     form_width_mm: float = Field(..., gt=0)
     form_depth_mm: float = Field(..., gt=0)
-    rois: List[RoiInput] = Field(..., min_items=1, max_items=20)
+    rois: List[RoiInput] = Field(..., min_items=0, max_items=20)
 
     @validator("image_data")
     def validate_image_size(cls, v):
