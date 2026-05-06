@@ -1,8 +1,8 @@
 # Image segmentation service using Rembg
 
+import cv2
 import numpy as np
 from typing import Tuple
-from rembg import remove, new_session
 
 from app.core.config import settings
 from app.core.logging import log
@@ -16,6 +16,8 @@ def get_rembg_session():
     """Get or create Rembg session."""
     global _rembg_session
     if _rembg_session is None:
+        from rembg import new_session
+
         log.info("Creating Rembg session", model=settings.rembg_model)
         _rembg_session = new_session(settings.rembg_model)
     return _rembg_session

@@ -1,5 +1,6 @@
 # Pipeline integration tests
 
+import cv2
 import pytest
 import numpy as np
 from app.api.schemas import MeasureBoardsRequest, Point, RoiInput

@@ -26,9 +26,10 @@ def smooth_contour(contour: np.ndarray, window_length: int = 11) -> np.ndarray:
     # Reshape to (N, 2)
     points = contour.reshape(-1, 2)
 
-    # Apply filter to x and y separately
-    smoothed_x = savgol_filter(points[:, 0], window_length, 3)
-    smoothed_y = savgol_filter(points[:, 1], window_length, 3)
+    # Determine polyorder safely for short curves
+    polyorder = min(3, window_length - 1)
+    smoothed_x = savgol_filter(points[:, 0], window_length, polyorder)
+    smoothed_y = savgol_filter(points[:, 1], window_length, polyorder)
 
     # Reshape back
     smoothed = np.column_stack([smoothed_x, smoothed_y])
