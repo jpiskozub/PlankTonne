@@ -12,6 +12,7 @@ dependencies = [
     "structlog>=24.0.0",
     "numpy>=1.26.0",
     "scipy>=1.11.0",
+    "python-multipart>=0.0.27",
 ]
 
 [project.optional-dependencies]
