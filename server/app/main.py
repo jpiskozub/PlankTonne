@@ -11,12 +11,12 @@ from app.core.logging import setup_logging
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Application lifespan context manager."""
-    # Startup
     setup_logging()
+    # Pre-load rembg model so first request doesn't download 170MB on the fly
+    from app.services.segmentation import get_rembg_session
+    import asyncio
+    await asyncio.to_thread(get_rembg_session)
     yield
-    # Shutdown
-    pass
 
 
 app = FastAPI(
