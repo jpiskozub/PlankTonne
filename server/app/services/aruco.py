@@ -7,7 +7,7 @@ from typing import Tuple
 from app.core.exceptions import ArucoNotFoundError
 from app.core.logging import log
 
-_ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
+_ARUCO_DICT = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_250)
 
 _DETECTION_STRATEGIES = [
     # (label, adaptiveThreshWinSizeMax, errorCorrectionRate, use_clahe, invert)

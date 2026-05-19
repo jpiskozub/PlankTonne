@@ -12,7 +12,7 @@ from app.core.exceptions import ArucoNotFoundError, ContourNotFoundError
 
 def make_aruco_image(marker_id: int = 0, marker_size_px: int = 100, image_size: int = 400) -> np.ndarray:
     """Synthesize a grayscale image containing one DICT_6X6_250 ArUco marker."""
-    aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_250)
+    aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_250)
     marker_img = cv2.aruco.generateImageMarker(aruco_dict, marker_id, marker_size_px)
     image = np.ones((image_size, image_size), dtype=np.uint8) * 200
     offset = (image_size - marker_size_px) // 2

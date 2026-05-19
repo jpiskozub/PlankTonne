@@ -37,3 +37,10 @@ build/
 *.sqlite3
 *.db
 *.sqlite
+
+# debug/test artefacts
+debug_mask_roi_*.png
+test_manual_image.jpg
+test.jpg
+testr.jpg
+testc*.jpg
